@@ -28,6 +28,7 @@ class PositionalList(_DoublyLinkedBase):
         def __ne__(self, other):
             return not (self == other)
 
+  
     def _validate(self, p):
         if not isinstance(p, self.Position):
             raise TypeError("p must e proper Position type")
