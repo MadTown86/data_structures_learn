@@ -38,3 +38,12 @@ class Tree:
     def is_empty(self):
         return len(self) == 0
 
+    def depth(self, p):
+        if self.is_root(p):
+            return 0
+        else:
+            return 1 + self.depth(self.parent(p))
+
+    def height1(self):
+        return max(self.depth(p) for p in self.positions() if self.is_leaf(p))
+
