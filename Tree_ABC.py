@@ -38,6 +38,11 @@ class Tree:
     def is_empty(self):
         return len(self) == 0
 
+    def height(self, p=None):
+        if p is None:
+            p = self.root()
+        return self._height2(p)
+
     def depth(self, p):
         if self.is_root(p):
             return 0
@@ -46,4 +51,10 @@ class Tree:
 
     def height1(self):
         return max(self.depth(p) for p in self.positions() if self.is_leaf(p))
+
+    def _height2(self, p):
+        if self.is_leaf(p):
+            return 0
+        else:
+            return 1 + max(self._height2(c) for c in self.children(p))
 
