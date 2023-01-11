@@ -4,6 +4,11 @@ class BinaryEulerTour(EulerTour):
     def _tour(self, p, d, path):
         results = [None, None]
         self._hook_previsit(p, d, path)
+        """
+        p - position of current node being visited
+        d - depth of p in the tree
+        path - list of indices of children on path from root to p
+        """
         if self._tree.left(p) is not None:
             path.append(0)
             results[0] = self._tour(self._tree.left(p), d+1, path)
